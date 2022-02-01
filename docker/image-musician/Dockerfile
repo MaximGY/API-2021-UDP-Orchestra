@@ -1,4 +1,4 @@
-FROM node:17
+FROM node:17-alpine
 
 COPY src/* /var/opt/
 WORKDIR /var/opt

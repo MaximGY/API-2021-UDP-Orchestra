@@ -17,7 +17,7 @@ const dgram = require('dgram')
 const socket = dgram.createSocket('udp4')
 const timeout = 1000 // ms
 
-console.log('Started playing !')
+console.log('Started playing ! I am ' + uuid)
 
 setInterval(
     function() {
@@ -26,7 +26,7 @@ setInterval(
             sound: sound
         })
 
-        console.log('Sending payload ' + payload)
+        console.log(sound)
         socket.send(payload, protocol.port, protocol.address)
     },
     timeout
