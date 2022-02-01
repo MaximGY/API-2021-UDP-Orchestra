@@ -37,7 +37,7 @@ s.on('message', (msg, source) => {
   // Update lastActivity
   musicians_activity.forEach((item, index, array) => {
     if (item.uuid = data.uuid) {
-      item.lastActivity = Date.now();
+      item.activeSince = Date(Date.now());
       found = true;
     }
   });
