@@ -1,6 +1,6 @@
 
 const PORT = 12345
-const ADDRESS = '0.0.0.0'
+const ADDRESS = '224.0.0.1'
 
 const INSTRUMENTS = {
     piano: 'ti-ta-ti',

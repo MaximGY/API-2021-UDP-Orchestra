@@ -11,10 +11,23 @@ if (!(process.argv[2] in protocol.instruments)) {
     process.exit()
 }
 
+const uuid = require('chance').Chance().guid() // Ol' reliable chance.js
 const sound = protocol.instruments[process.argv[2]]
 const dgram = require('dgram')
 const socket = dgram.createSocket('udp4')
+const timeout = 1000 // ms
 
-console.log('Now playing sound: ' + sound)
+console.log('Started playing !')
 
+setInterval(
+    function() {
+        const payload = JSON.stringify({
+            uuid: uuid, 
+            sound: sound
+        })
 
+        console.log('Sending payload ' + payload)
+        socket.send(payload, protocol.port, protocol.address)
+    },
+    timeout
+)

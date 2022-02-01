@@ -1,5 +1,7 @@
 FROM node:17
 
 COPY src/* /var/opt/
+WORKDIR /var/opt
+RUN npm install
 
-ENTRYPOINT ["node", "/var/opt/index.js"]
+ENTRYPOINT ["node", "index.js"]
