@@ -1,9 +1,16 @@
 class Musician {
   constructor(uuid, instrument, activeSince) {
-      this.uuid = uuid;
-      this.instrument = instrument;
-      this.activeSince = activeSince;
+    this.uuid = uuid;
+    this.instrument = instrument;
+    this.activeSince = activeSince;
   }
 }
 
-module.exports = { Musician };
+class MusicianActivity {
+  constructor(uuid, lastActivity) {
+    this.uuid = uuid;
+    this.lastActivity;
+  }
+}
+
+module.exports = { Musician, MusicianActivity };

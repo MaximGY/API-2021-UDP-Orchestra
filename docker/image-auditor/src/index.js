@@ -9,6 +9,7 @@ const TCP_PORT = 2205;
 
 // Active musicians
 let musicians = [];
+let musicians_activity = [];
 
 // Let's create a datagram socket. We will use it to listen for datagrams published in the
 // multicast group by thermometers and containing measures
@@ -33,13 +34,14 @@ s.on('message', (msg, source) => {
 
   let found = false;
 
-  // Update activeSince
-  musicians.forEach((item, index, array) => {
+  // Update lastActivity
+  musicians_activity.forEach((item, index, array) => {
     if (item.uuid = data.uuid) {
-      item.activeSince = Date.now();
+      item.lastActivity = Date.now();
       found = true;
     }
   });
+
   // Insert a new Musician if not in the list
   if (!found) {
     let instrument;
@@ -51,13 +53,15 @@ s.on('message', (msg, source) => {
       }
     }
     musicians.push(new musician.Musician(data.uuid, instrument, Date.now()));
+    musicians_activity.push(new musician.MusicianActivity(data.uuid, Date.now()));
   }
 });
 
 setInterval(() => {
-  musicians.forEach((item, index, array) => {
-    if (Date.now() - item.activeSince > 5000) {
-      array.splice(index, 1);
+  musicians_activity.forEach((item, index, array) => {
+    if (Date.now() - item.lastActivity > 5000) {
+      musicians.splice(index, 1);
+      musicians_activity.splice(index, 1);
     }
   });
 }, 100);
