@@ -8,8 +8,7 @@ const dgram = require('dgram');
 const TCP_PORT = 2205;
 
 // Active musicians
-let musicians = [];
-let musicians_activity = [];
+let musicians = new Map();
 
 // Let's create a datagram socket. We will use it to listen for datagrams published in the
 // multicast group by thermometers and containing measures
@@ -24,7 +23,7 @@ var tcp_socket = net.createServer();
 tcp_socket.listen(TCP_PORT);
 
 tcp_socket.on('connection', (socket) => {
-    socket.write(JSON.stringify(musicians, null, 2));
+    socket.write(JSON.stringify(Array.from(musicians.keys()), null, 2));
     socket.end();
 });
 
@@ -34,10 +33,10 @@ s.on('message', (msg, source) => {
 
   let found = false;
 
-  // Update lastActivity
-  musicians_activity.forEach((item, index, array) => {
-    if (item.uuid == data.uuid) {
-      item.lastActivity = Date.now();
+  // Update the value
+  musicians.forEach((value, key, map) => {
+    if (key.uuid == data.uuid) {
+      musicians.set(key, Date.now());
       found = true;
     }
   });
@@ -52,16 +51,14 @@ s.on('message', (msg, source) => {
         break;
       }
     }
-    musicians.push(new musician.Musician(data.uuid, instrument, new Date()));
-    musicians_activity.push(new musician.MusicianActivity(data.uuid, Date.now()));
+    musicians.set(new musician.Musician(data.uuid, instrument, new Date()), Date.now());
   }
 });
 
 setInterval(() => {
-  musicians_activity.forEach((item, index, array) => {
-    if (Date.now() - item.lastActivity > 5000) {
-      musicians.splice(index, 1);
-      musicians_activity.splice(index, 1);
+  musicians.forEach((value, key, map) => {
+    if (Date.now() - value > 5000) {
+      musicians.delete(key);
     }
   });
 }, 100);

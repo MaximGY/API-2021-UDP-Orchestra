@@ -6,11 +6,4 @@ class Musician {
   }
 }
 
-class MusicianActivity {
-  constructor(uuid, lastActivity) {
-    this.uuid = uuid;
-    this.lastActivity;
-  }
-}
-
-module.exports = { Musician, MusicianActivity };
+module.exports = { Musician };
