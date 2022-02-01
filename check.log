@@ -1,0 +1,43 @@
+origin	https://github.com/MaximGY/API-2021-UDP-Orchestra.git (fetch)
+origin	https://github.com/MaximGY/API-2021-UDP-Orchestra.git (push)
+Starting auditor container "1ea3ccacbc5009f04bafa33c16b6455a82ab55c37a69eb650cff83b3b9ac15fd"
+Starting auditor container "6565b2b28c69abdc1a9da186016d30f2408db9c526c237fc47cd749ef0854497"
+Starting auditor container "079b7a1a7dcffcb8699b51ad0413c566d0660f9a85bd02b0ab1ba8bad163061d"
+Starting auditor container "c20b4f7724477ca55abb17c886f790e9d63209fd17380f74fd781989c19fa2ee"
+Starting auditor container "5f2f89592ae1008b8331b32d8fe34f41238bef76f1bd0fb224aa13d5ce1d9e56"
+Starting auditor container "7602644f59794c64427ad9f3038bff3d3f7d0934edd3ae76a73f34cff76c4d2a"
+Starting auditor container "b25fd874186bc2ef01eedeb7c9e04beaa2173855e2baf53646056ea405a9d500"
+Starting auditor container "3eab5665036bf527187baf6bab50c8514782756d91bf3022e67ff849084ce0ba"
+Starting auditor container "43eeb5c206ad67bd2e0bf1f4798db0d22c0912a92274e4f02721b48ac1f32565"
+Starting auditor container "a06a350074b677c88a2c6e2b99b94de3dc1fea874954f067bc9b9771d3738726"
+Starting auditor container "6e1f89ecf90f3250277116cb33d5be848fe8980ad61d26b5b89e61753dc14147"
+11 containers have been started.
+7602644f59794c64427ad9f3038bff3d3f7d0934edd3ae76a73f34cff76c4d2a : index.js,flute
+a06a350074b677c88a2c6e2b99b94de3dc1fea874954f067bc9b9771d3738726 : index.js,violin
+6e1f89ecf90f3250277116cb33d5be848fe8980ad61d26b5b89e61753dc14147 : index.js,trumpet
+6565b2b28c69abdc1a9da186016d30f2408db9c526c237fc47cd749ef0854497 : index.js,drum
+b25fd874186bc2ef01eedeb7c9e04beaa2173855e2baf53646056ea405a9d500 : index.js,piano
+5f2f89592ae1008b8331b32d8fe34f41238bef76f1bd0fb224aa13d5ce1d9e56 : index.js,piano
+3eab5665036bf527187baf6bab50c8514782756d91bf3022e67ff849084ce0ba : index.js,violin
+c20b4f7724477ca55abb17c886f790e9d63209fd17380f74fd781989c19fa2ee : index.js,violin
+079b7a1a7dcffcb8699b51ad0413c566d0660f9a85bd02b0ab1ba8bad163061d : index.js,trumpet
+1ea3ccacbc5009f04bafa33c16b6455a82ab55c37a69eb650cff83b3b9ac15fd : index.js,flute
+43eeb5c206ad67bd2e0bf1f4798db0d22c0912a92274e4f02721b48ac1f32565 : /opt/app/index.js
+Auditor validation: success: ["drum","flute","flute","piano","piano","trumpet","trumpet","violin","violin","violin"]
+There are 10 musicians, let's kill one
+killed b25fd874186bc2ef01eedeb7c9e04beaa2173855e2baf53646056ea405a9d500
+Auditor validation: success: ["drum","flute","flute","piano","trumpet","trumpet","violin","violin","violin"]
+Scheduling a new test
+There are 9 musicians, let's kill one
+killed 079b7a1a7dcffcb8699b51ad0413c566d0660f9a85bd02b0ab1ba8bad163061d
+Auditor validation: success: ["drum","flute","flute","piano","trumpet","violin","violin","violin"]
+Scheduling a new test
+There are 8 musicians, let's kill one
+killed 6e1f89ecf90f3250277116cb33d5be848fe8980ad61d26b5b89e61753dc14147
+Auditor validation: success: ["drum","flute","flute","piano","violin","violin","violin"]
+Scheduling a new test
+There are 7 musicians, let's kill one
+killed a06a350074b677c88a2c6e2b99b94de3dc1fea874954f067bc9b9771d3738726
+Auditor validation: success: ["drum","flute","flute","piano","violin","violin"]
+Scheduling a new test
+We have done all tests.
