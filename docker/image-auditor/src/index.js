@@ -5,7 +5,6 @@ const net = require('net');
 // We use a standard Node.js module to work with UDP
 const dgram = require('dgram');
 
-const TCP_HOST = '127.0.0.1';
 const TCP_PORT = 2205;
 
 // Active musicians
@@ -20,10 +19,13 @@ s.bind(protocol.port, () => {
 });
 
 // TCP server
-net.createServer((socket) => {
-  socket.write(musicians);
-  socket.close();
-}).listen(TCP_PORT, TCP_HOST);
+var tcp_socket = net.createServer();
+tcp_socket.listen(TCP_PORT);
+
+tcp_socket.on('connection', (socket) => {
+    socket.write(JSON.stringify(musicians));
+    socket.end();
+});
 
 // This call back is invoked when a new datagram has arrived.
 s.on('message', (msg, source) => {
