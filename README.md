@@ -108,73 +108,74 @@ Reminder: answer the following questions [here](https://forms.gle/6SM7cu4cYhNsRv
 | Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
 |          | _Insert your diagram here..._                                                                                                                                           |
 | Question | Who is going to **send UDP datagrams** and **when**?                                                                                                                    |
-|          | Auditors. Every second                                                                                                                                                  |
+|          | _Enter your response here..._                                                                                                                                           |
 | Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received?                                                                        |
-|          | Auditors. It should remember that this musician played for 5 seconds                                                                                                    |
+|          | _Enter your response here..._                                                                                                                                           |
 | Question | What **payload** should we put in the UDP datagrams?                                                                                                                    |
-|          | An unique identifier as well as the sound played                                                                                                                        |
+|          | _Enter your response here..._                                                                                                                                           |
 | Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures?                |
-|          | Maps. We will query them when requested                                                                                                                                 |
+|          | _Enter your response here..._                                                                                                                                           |
 
 ## Task 2: implement a "musician" Node.js application
 
 | #        | Topic                                                                               |
 | -------- | ----------------------------------------------------------------------------------- |
 | Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**? |
-|          | `JSON.stringify(object)`                                                            |
+|          | _Enter your response here..._                                                       |
 | Question | What is **npm**?                                                                    |
-|          | An app to manage JS packages and dependencies                                       |
+|          | _Enter your response here..._                                                       |
 | Question | What is the `npm install` command and what is the purpose of the `--save` flag?     |
-|          | It installs packages, modifiying dependencies in `package.json`                     |
+|          | _Enter your response here..._                                                       |
 | Question | How can we use the `https://www.npmjs.com/` web site?                               |
-|          | To look for useful packages                                                         |
+|          | _Enter your response here..._                                                       |
 | Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122?               |
-|          | Using Chance.js                                                                     |
+|          | _Enter your response here..._                                                       |
 | Question | In Node.js, how can we execute a function on a **periodic** basis?                  |
-|          | Using `setInterval`                                                                 |
+|          | _Enter your response here..._                                                       |
 | Question | In Node.js, how can we **emit UDP datagrams**?                                      |
-|          | Using the `dgram` package from Node                                                 |
+|          | _Enter your response here..._                                                       |
 | Question | In Node.js, how can we **access the command line arguments**?                       |
-|          | Using the `process.argv` array of string                                            |
+|          | _Enter your response here..._                                                       |
 
 ## Task 3: package the "musician" app in a Docker image
 
 | #        | Topic                                                                               |
 | -------- | ----------------------------------------------------------------------------------- |
 | Question | How do we **define and build our own Docker image**?                                |
-|          | Using Dockerfiles                                                                   |
+|          | _Enter your response here..._                                                       |
 | Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?                        |
-|          | `ENTRYPOINT ["node", "index.js"]`                                                   |
+|          | _Enter your response here..._                                                       |
 | Question | After building our Docker image, how do we use it to **run containers**?            |
-|          | `docker run -it *container name*`                                                   |
+|          | _Enter your response here..._                                                       |
 | Question | How do we get the list of all **running containers**?                               |
-|          | `docker ps`                                                                         |
+|          | _Enter your response here..._                                                       |
 | Question | How do we **stop/kill** one running container?                                      |
-|          | `docker stop/kill *container id or name*`                                           |
+|          | _Enter your response here..._                                                       |
 | Question | How can we check that our running containers are effectively sending UDP datagrams? |
-|          | Using `tcpdump`                                                                     |
+|          | _Enter your response here..._                                                       |
 
 ## Task 4: implement an "auditor" Node.js application
 
 | #        | Topic                                                                                              |
 | -------- | -------------------------------------------------------------------------------------------------- |
 | Question | With Node.js, how can we listen for UDP datagrams in a multicast group?                            |
-|          | _Enter your response here..._                                                                      |
+|          | _By calling the `addMembership` function on the socket, with the multicast address in parameter_                                                                   |
 | Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**? |
-|          | _Enter your response here..._                                                                      |
+|          | _We can use a Musician as a key and the last activity as a value. Then we simply do `myMap.set(key, value)`._                                                                      |
 | Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting?   |
-|          | _Enter your response here..._                                                                      |
+|          | _(Not used)_                                                                      |
 | Question | When and how do we **get rid of inactive players**?                                                |
-|          | _Enter your response here..._                                                                      |
+|          | _The simpliest way is to regulary check for the last registered activity. Then we simply remove
+            the Musician from the Map if he has been inactive for more than five seconds._                                                                      |
 | Question | How do I implement a **simple TCP server** in Node.js?                                             |
-|          | _Enter your response here..._                                                                      |
+|          | _By using the `net` module. Doc : https://nodejs.org/api/net.html_                                                                      |
 
 ## Task 5: package the "auditor" app in a Docker image
 
 | #        | Topic                                                                                |
 | -------- | ------------------------------------------------------------------------------------ |
 | Question | How do we validate that the whole system works, once we have built our Docker image? |
-|          | Using the `validate.sh` script                                                       |
+|          | _Enter your response here..._                                                        |
 
 ## Constraints
 
