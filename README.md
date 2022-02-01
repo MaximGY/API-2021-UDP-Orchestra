@@ -165,8 +165,7 @@ Reminder: answer the following questions [here](https://forms.gle/6SM7cu4cYhNsRv
 | Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting?   |
 |          | _(Not used)_                                                                      |
 | Question | When and how do we **get rid of inactive players**?                                                |
-|          | _The simpliest way is to regulary check for the last registered activity. Then we simply remove
-            the Musician from the Map if he has been inactive for more than five seconds._                                                                      |
+|          | _The simpliest way is to regulary check for the last registered activity. Then we simply remove the Musician from the Map if he has been inactive for more than five seconds._                                                                      |
 | Question | How do I implement a **simple TCP server** in Node.js?                                             |
 |          | _By using the `net` module. Doc : https://nodejs.org/api/net.html_                                                                      |
 
