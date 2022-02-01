@@ -24,7 +24,7 @@ var tcp_socket = net.createServer();
 tcp_socket.listen(TCP_PORT);
 
 tcp_socket.on('connection', (socket) => {
-    socket.write(JSON.stringify(musicians));
+    socket.write(JSON.stringify(musicians, null, 2));
     socket.end();
 });
 
@@ -37,7 +37,7 @@ s.on('message', (msg, source) => {
   // Update lastActivity
   musicians_activity.forEach((item, index, array) => {
     if (item.uuid = data.uuid) {
-      item.activeSince = Date(Date.now());
+      item.lastActivity = Date.now();
       found = true;
     }
   });
@@ -52,7 +52,7 @@ s.on('message', (msg, source) => {
         break;
       }
     }
-    musicians.push(new musician.Musician(data.uuid, instrument, Date.now()));
+    musicians.push(new musician.Musician(data.uuid, instrument, new Date()));
     musicians_activity.push(new musician.MusicianActivity(data.uuid, Date.now()));
   }
 });
